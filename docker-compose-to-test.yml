@@ -1,0 +1,28 @@
+version: '3.9'
+services:
+    docker:
+        command: 'volume create portainer_data'
+        image: docker
+
+services:
+    sudo:
+        command: 'docker network create -d macvlan -o parent=enxb827eb03ae0e --subnet=192.168.1.0/24 --gateway=192.168.1.1 --ip-range=192.168.1.195/32 ph_network'
+        image: sudo
+      
+services:
+    portainer-ce:
+        image: 'portainer/portainer-ce:lts'
+        volumes:
+            - 'portainer_data:/data'
+            - '/var/run/docker.sock:/var/run/docker.sock'
+        restart: always
+        container_name: portainer
+        ports:
+            - '9443:9443'
+            - '8000:8000'
+volumes:
+  portainer_data:
+
+
+# https://docs.portainer.io/start/install-ce/server/docker/linux
+# https://earthly.dev/blog/portainer-for-docker-container-management/
