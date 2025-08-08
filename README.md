@@ -1,6 +1,6 @@
 # portainer-ce
 How to run portainer-ce
-
+#https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
 ## Run it docker-compose 
 ```shell
 > git@github.com/luislopescmc/portainer-ce.git
@@ -18,13 +18,15 @@ $ docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \
 
 ## Resetting Admin password in Portainer running as container
 ```shell
-docker container stop portainer
+docker ps
+docker container stop portainer # docker stop <CONTAINER_ID>
+docker pull portainer/helper-reset-password
 docker run --rm -v portainer_data:/data portainer/helper-reset-password
 
 #2020/06/04 00:13:58 Password succesfully updated for user: admin
 #2020/06/04 00:13:58 Use the following password to login: &_4#\3^5V8vLTd)E"NWiJBs26G*9HPl1
 
-docker container start portainer
+docker container start portainer # docker start <CONTAINER_ID>
 ```
 
 ## Updating your Portainer Server
