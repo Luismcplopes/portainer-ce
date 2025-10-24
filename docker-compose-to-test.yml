@@ -4,10 +4,10 @@ services:
         command: 'volume create portainer_data'
         image: docker
 
-services:
-    sudo:
-        command: 'docker network create -d macvlan -o parent=enxb827eb03ae0e --subnet=192.168.1.0/24 --gateway=192.168.1.1 --ip-range=192.168.1.195/32 ph_network'
-        image: sudo
+#services:
+#    sudo:
+#        command: 'docker network create -d macvlan -o parent=enxb827eb03ae0e --subnet=192.168.1.0/24 --gateway=192.168.1.1 --ip-range=192.168.1.195/32 ph_network'
+#        image: sudo
       
 services:
     portainer-ce:
