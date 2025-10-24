@@ -1,6 +1,8 @@
 # portainer-ce
 How to run portainer-ce
-#https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json
+**portainer-templates** 
+https://raw.githubusercontent.com/Lissy93/portainer-templates/main/templates.json  
+
 ## Run it docker-compose 
 ```shell
 > git@github.com/luislopescmc/portainer-ce.git
